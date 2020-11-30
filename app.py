@@ -214,7 +214,7 @@ def view_all_users():
 
 
 def main():
-    st.set_option('deprecation.showfileUploaderEncoding', False)
+    #st.set_option('deprecation.showfileUploaderEncoding', False)
 
     st.title("HATI.AI")
     image = Image.open('macroview.jpg')
