@@ -277,9 +277,10 @@ def main():
                         """, unsafe_allow_html=True)
                 from stop_words import get_stop_words
                 if classifier == 'Find new topics':
-            
+                    import io
                     
                     uploaded_file = st.file_uploader('Upload CSV file to begin', type='csv')
+                    text_io = io.TextIOWrapper(uploaded_file)
                 
                     #if upload then show left bar
                     if uploaded_file is not None:
