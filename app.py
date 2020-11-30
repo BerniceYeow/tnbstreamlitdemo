@@ -5,25 +5,18 @@ Created on Wed Nov 25 11:47:10 2020
 @author: BerniceYeow
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Nov  6 17:53:38 2020
-
-@author: MACROVIEW CONSULTING
-"""
-
 
 import pandas as pd
 import numpy as np
 import re
-
+import nltk
 from nltk.tokenize import WordPunctTokenizer
 from emot.emo_unicode import UNICODE_EMO, EMOTICONS
 from nltk.corpus import stopwords
 
 import malaya
 
-import pandas as pd
+
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
@@ -33,13 +26,13 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
 import sys
 import time
-import re
-import nltk
+
+
 import json
 
 
 import datetime as dt
-import pandas as pd
+
 #LOAD THE WORDS TO REMOVE FROM MALAYA TATABAHASA DICTIONARY
 from malaya.text import tatabahasa
 
@@ -72,36 +65,20 @@ token = WordPunctTokenizer()
 corrector = malaya.spell.probability()
 
 import pandas as pd
-import numpy as np
-import re
+
 
 from nltk.tokenize import WordPunctTokenizer
-from emot.emo_unicode import UNICODE_EMO, EMOTICONS
-from nltk.corpus import stopwords
+
 import malaya
 
-import pandas as pd
-from sklearn import metrics
-from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.svm import LinearSVC
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.linear_model import LogisticRegression
-from sklearn.neighbors import KNeighborsClassifier
-import sys
-import time
-import re
-import nltk
+
 import json
 
 
-import datetime as dt
 import pandas as pd
 
-import sys
+
 # !{sys.executable} -m spacy download en
-import re, numpy as np, pandas as pd
-from pprint import pprint
 
 # Gensim
 import gensim, spacy, logging, warnings
@@ -112,62 +89,32 @@ import matplotlib.pyplot as plt
 
 # NLTK Stop words
 
-from nltk.corpus import stopwords
 from nltk import word_tokenize
 import streamlit as st
 import pandas as pd
-import numpy as np
 
 from PIL import Image
 
 
-from sklearn.svm import SVC
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.preprocessing import LabelEncoder
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import plot_confusion_matrix, plot_roc_curve, plot_precision_recall_curve
-from sklearn.metrics import precision_score, recall_score
-
 
 import pandas as pd
-import numpy as np
-import re
+
 
 from nltk.tokenize import WordPunctTokenizer
-from emot.emo_unicode import UNICODE_EMO, EMOTICONS
-from nltk.corpus import stopwords
+
 import malaya
 
 import pandas as pd
-from sklearn import metrics
-from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.svm import LinearSVC
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.linear_model import LogisticRegression
-from sklearn.neighbors import KNeighborsClassifier
-import sys
-import time
-import re
-import nltk
+
 import json
 
 
-import datetime as dt
+
 import pandas as pd
 
-import sys
-# !{sys.executable} -m spacy download en
-import re, numpy as np, pandas as pd
 
 
-# Gensim
-import gensim, spacy, logging, warnings
-import gensim.corpora as corpora
-from gensim.utils import lemmatize, simple_preprocess
-from gensim.models import CoherenceModel
-import matplotlib.pyplot as plt
+
 
 
 english_stopwords = ['ourselves', 'hers', 'between', 'yourself', 'but', 'again', 'there', 'about', 'once', 'during', 'out', 'very', 'having', 'with', 'they', 'own', 'an', 'be', 'some', 'for', 'do', 'its', 'yours', 'such', 'into', 'of', 'most', 'itself', 'other', 'off', 'is', 's', 'am', 'or', 'who', 'as', 'from', 'him', 'each', 'the', 'themselves', 'until', 'below', 'are', 'we', 'these', 'your', 'his', 'through', 'don', 'nor', 'me', 'were', 'her', 'more', 'himself', 'this', 'down', 'should', 'our', 'their', 'while', 'above', 'both', 'up', 'to', 'ours', 'had', 'she', 'all', 'no', 'when', 'at', 'any', 'before', 'them', 'same', 'and', 'been', 'have', 'in', 'will', 'on', 'does', 'yourselves', 'then', 'that', 'because', 'what', 'over', 'why', 'so', 'can', 'did', 'not', 'now', 'under', 'he', 'you', 'herself', 'has', 'just', 'where', 'too', 'only', 'myself', 'which', 'those', 'i', 'after', 'few', 'whom', 't', 'being', 'if', 'theirs', 'my', 'against', 'a', 'by', 'doing', 'it', 'how', 'further', 'was', 'here', 'than']
@@ -214,7 +161,7 @@ def view_all_users():
 
 
 def main():
-    #st.set_option('deprecation.showfileUploaderEncoding', False)
+    st.set_option('deprecation.showfileUploaderEncoding', False)
 
     st.title("HATI.AI")
     image = Image.open('macroview.jpg')
@@ -277,10 +224,9 @@ def main():
                         """, unsafe_allow_html=True)
                 from stop_words import get_stop_words
                 if classifier == 'Find new topics':
-                    import io
+            
                     
                     uploaded_file = st.file_uploader('Upload CSV file to begin', type='csv')
-                    text_io = io.TextIOWrapper(uploaded_file)
                 
                     #if upload then show left bar
                     if uploaded_file is not None:
